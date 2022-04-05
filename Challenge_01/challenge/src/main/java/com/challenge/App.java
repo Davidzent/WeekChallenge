@@ -12,7 +12,7 @@ public final class App {
 
     public static void main(String[] args) {
         //Create array
-        int size = 10;
+        int size = 100;
         CircularArray<Integer> a=new CircularArray<>(size);
 
         //Add values to the array

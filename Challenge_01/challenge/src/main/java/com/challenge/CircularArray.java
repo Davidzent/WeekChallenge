@@ -11,8 +11,10 @@ public class CircularArray<T> implements Iterable<T>{
      * Prints the array
      */
     public void printArr(){
+        int cnt=1;
         for(T e:this){
             System.out.print(e+" ");
+            if((cnt++)%10==0)System.out.print("\n");
         }
         System.out.print("\n");
     }
