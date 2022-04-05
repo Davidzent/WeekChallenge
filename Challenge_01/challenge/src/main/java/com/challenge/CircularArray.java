@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class CircularArray<T> implements Iterable<T>{
-    private ArrayList<T> array;
+    private T[] array;
     private int start;                  //Start position
 
     /**
@@ -49,7 +49,7 @@ public class CircularArray<T> implements Iterable<T>{
      * @param start
      */
     public void setStart(int start) {
-        this.start =  Math.floorMod(start,array.size());
+        this.start =  Math.floorMod(start,array.length);
     }
 
     /**
@@ -57,7 +57,7 @@ public class CircularArray<T> implements Iterable<T>{
      * @param moves number of index rotations to the left
      */
     public void rotateLeft(int moves){
-        start = Math.floorMod((start - moves),array.size());        
+        start = Math.floorMod((start - moves),array.length);        
     }
 
     /**
@@ -65,7 +65,7 @@ public class CircularArray<T> implements Iterable<T>{
      * @param moves number of index rotations to the right
      */
     public void rotateRight(int moves){
-        start = Math.floorMod((start + moves),array.size());
+        start = Math.floorMod((start + moves),array.length);
 
     }
 
@@ -78,13 +78,13 @@ public class CircularArray<T> implements Iterable<T>{
 
             @Override
             public boolean hasNext() {
-                currentIndex=Math.floorMod(currentIndex,array.size());          //limit the range of the index
-                return cnt++ < array.size() && array.get(currentIndex) != null; 
+                currentIndex=Math.floorMod(currentIndex,array.length);          //limit the range of the index
+                return cnt++ < array.length && array[currentIndex] != null; 
             }
 
             @Override
             public T next() {
-                return array.get(currentIndex++);
+                return array[currentIndex++];
             }
 
             @Override
@@ -98,29 +98,29 @@ public class CircularArray<T> implements Iterable<T>{
     // Constructors, Getters and Setters
 
     public CircularArray(int size) {
-        array=new ArrayList<>(size);
+        array=(T[]) new Object[size];
         start=0;
     }
 
-    public CircularArray(ArrayList<T> array) {
+    public CircularArray(T[] array) {
         this.array = array;
         start = 0;
     }
 
-    public ArrayList<T> getArray() {
+    public T[] getArray() {
         return array;
     }
 
-    public void setArray(ArrayList<T> array) {
+    public void setArray(T[] array) {
         this.array = array;
     }
 
     public int getSize(){
-        return array.size();
+        return array.length;
     }
 
-    public void addElement(T e){
-        array.add(e);
+    public void addElement(int index, T val){
+        array[index]=val;
     }
 
     public int getStart() {

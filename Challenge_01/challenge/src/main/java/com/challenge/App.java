@@ -10,13 +10,6 @@ package com.challenge;
 */
 public final class App {
 
-    // public  static void printArr(CircularArray<Integer> a){
-    //     for(Integer e:a){
-    //         System.out.print(e+" ");
-    //     }
-    //     System.out.print("\n");
-    // }
-
     public static void main(String[] args) {
         //Create array
         int size = 10;
@@ -24,32 +17,10 @@ public final class App {
 
         //Add values to the array
         for(int i=0;i<size;i++){
-            a.addElement(i);
+            a.addElement(i,i);
         }
 
         a.check(); //Used for manual checking
-
-        
-        // //Print array
-        // printArr(a);
-
-        // //Rotate Array Left
-        // a.rotateLeft(1);
-        
-        // //Print array
-        // printArr(a);
-
-        // //Rotate Array Right
-        // a.rotateRight(2);
-
-        // //Print array
-        // printArr(a);
-
-        // //Set the start position ex: index 15
-        // a.setStart(15);
-
-        // //Print array
-        // printArr(a);
 
     }
 }
